@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+</head>
+<body>
+<div id="main">
+    <div id="edit">
+        <i class="ri-close-line" id="cancel"></i>
+        <div id="image">
+            <div id="overlay"><i class="ri-pencil-fill"></i></div>
+        <% if(foundUser.profilePic == 'null'){ %>
+            <%  if(foundUser.gender == 'Male'){ %>
+              <img src="/images/uploads/<%= foundUser.DP.male %>" alt="">
+          <% } %>
+            <% if(foundUser.gender == 'Female'){ %>
+              <img src="/images/uploads/<%= foundUser.DP.female %>" alt="">
+          <% } %>
+          <% if(foundUser.gender == 'Other'){ %>
+              <%console.log(foundUser.DP.other)%>
+              <img src="/images/uploads/<%= foundUser.DP.other %>" alt="">
+          <% } %>
+         <%  } %>
+         <% if(foundUser.profilePic != 'null'){%>
+          <img src="/images/uploads/users/<%= foundUser.profilePic %>" alt="">
+      <%}%>
+    </div>
+    <form action="/edit" id="signup" method="post" enctype="multipart/form-data">
+        <h2>Edit Profile</h2>
+        <label id="label" for="username"></label>
+      
+        <label class="l" for="age">Age (1-100)</label>
+        <input type="number" name="age" placeholder="Age" id="age" required min="1" max="100">
+      
+        <label class="l" for="phone">Phone No (10 digits)</label>
+        <input type="tel" name="phone" placeholder="Phone No" id="phone" required pattern="[0-9]{10}">
+      
+        <label class="l" for="bio">Your Bio</label>
+        <textarea type="text" name="bio" id="bio" placeholder="Bio"></textarea>
+      
+        <label for="gender">Choose Gender</label>
+        <select name="gender" id="gender">
+          <option value="Male">Male 👦</option>
+          <option value="Female">Female 👧</option>
+          <option value="Other">🌈🏳️‍🌈</option>
+        </select>
+      
+        <input type="file" name="profilePic" id="pic">
+        <span id="span">
+          <span><i class="ri-instagram-line"></i><input type="text" name="insta" id="insta" placeholder=" username"></span>
+          <span><i class="ri-facebook-circle-fill"></i><input type="text" name="facebook" id="fb" placeholder="username"></span>
+          <span><i class="ri-twitter-x-fill"></i><input type="text" name="twitter" id="twitter" placeholder="username"></span>
+        </span>
+      
+        <input type="submit" name="" value="Edit" style="background-color: crimson; color: white; font-weight: 600; cursor: pointer;">
+      </form>
+      
+    </div>
+    <!-- <%= foundUser %> -->
+    
+    <%console.log(foundUser.DP.male)%>
+    <div id="left">
+        
+        <% if(foundUser.profilePic == 'null'){ %>
+          <%  if(foundUser.gender == 'Male'){ %>
+            <img src="/images/uploads/<%= foundUser.DP.male %>" alt="">
+        <% } %>
+          <% if(foundUser.gender == 'Female'){ %>
+            <img src="/images/uploads/<%= foundUser.DP.female %>" alt="">
+        <% } %>
+        <% if(foundUser.gender == 'Other'){ %>
+            <%console.log(foundUser.DP.other)%>
+            <img src="/images/uploads/<%= foundUser.DP.other %>" alt="">
+        <% } %>
+       <%  } %>
+       <% if(foundUser.profilePic != 'null'){%>
+        <img src="/images/uploads/users/<%= foundUser.profilePic %>" alt="">
+    <%}%>
+    </div>
+    <div id="right">
+       
+        <a href="/logout"><i class="ri-shut-down-line"></i>Logout</a>
+        <% if(admin == true){%>
+            <a id="pencil" style="right: 9em; background-color: rgb(77, 220, 77);"><i class="ri-pencil-fill"></i> Edit</a>
+        <%}%>
+        <div class="info">
+            <h5>User Name</h5>
+            <h1 id="user"><%= foundUser.username %></h1>
+        </div>
+        <div id="subInfo" >
+            <div class="info">
+            <h5>Age</h5>
+            <h1><%= foundUser.age %></h1>
+        </div>
+        <div class="info">
+            <h5>Gender</h5>
+            <h1><%= foundUser.gender %></h1>
+        </div>
+        </div>
+        <div id="subInfo">
+            <div class="info">
+                <h5>High Score</h5>
+                <h1><%= foundUser.highScore %></h1>
+            </div>        <div class="info">
+                <h5>Ranking</h5>
+                <h1><%= ranking %></h1>
+            </div>
+        </div>
+        <div id="subInfo">
+        <div class="info">
+                <h5>Bio</h5>
+                <h3><%= foundUser.bio %></h4>
+            </div>
+        </div>
+        <div id="subInfo">
+            <a href="https://www.facebook.com/<%= foundUser.facebook %>"><i class="ri-facebook-box-line"></i></a>
+            <a href="https://twitter.com/<%= foundUser.twitter %>"><i class="ri-twitter-x-line"></i></a>
+            <a href="https://www.instagram.com/<%= foundUser.insta %>/"><i class="ri-instagram-line"></i></a>
+        </div>
+        <div id="btn">
+            <img src="/images/playbtn.png" alt="" onclick="launch()">
+            <div id="leader"><a href="/leaderBoard"><img src="/images/leaderBoard.jpg" alt="" ></a></div>
+        </div>
+       <p style="margin-top: 2em; background: #dadada; font-size: .7em;">This is a note form me(PiyushFEREX){githubUsername} <br> the game is made and tested on Brave Browser in 2023, made just for Fun Don't judge(i have a lot on my plate right now) , if it still runs,Smoothly?... ENJOY!</p>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/javascripts/profile.js"></script>
+</body>
+</html>

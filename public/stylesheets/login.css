@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:gilroy;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(/images/flappybirdbg.png);
+    background-size: contain;
+    display: flex;
+}
+
+#left{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#left img{
+    height: 25%;
+}
+#right{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: lightgreen; */
+}
+#log{
+    height: 80%;width: 80%;
+    background-color: rgba(144, 238, 144, 0.309);
+    border-radius: 1em;
+    display: flex;
+    overflow-x: hidden;
+    position: relative;
+    border:  1px solid white;
+    /* overflow-y: scroll; Enable vertical scrollbar */
+    /* scrollbar-width: thin; Width of the scrollbar (thin or auto) */
+  /*   scrollbar-color: #057eff #f0f0f0; Color of the scrollbar (thumb and track) */
+  
+}
+/* Style the thumb (the draggable part of the scrollbar) */
+#log::-webkit-scrollbar-thumb {
+    background-color: #49ff6b; /* Color of the thumb */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* Style the track (the non-draggable part of the scrollbar) */
+  #log::-webkit-scrollbar-track {
+    background-color: #f0f0f086; /* Color of the track */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* Hide the default scrollbar on non-webkit browsers */
+  #log::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+#log form{
+    background-color: transparent;
+    top: 0;left: 0;
+    /* height: 100%; */
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    transition: .5s ease;
+}
+input{
+    outline-color: orange;
+    margin-bottom: 1em;
+    padding: 1em 2em;
+    border-radius: 2em;
+    border: none;
+}
+#login{
+    transform: translateX(-100%);
+}
+
+h1{
+    font-size: 1em;
+    margin-top: 1em;
+    cursor: pointer;
+    padding: 1em 2em;
+    background-color: aqua;
+    color: rgb(27, 27, 27);
+    border-radius: 3em;
+}
+h2{
+    margin-bottom: 1em;
+    color: white;
+}
+label{
+    font-weight: 600;
+    font-size: 1em;
+    color: white;
+
+}
+#label{
+    font-size: .7em;
+    margin-bottom: -.7em;
+    /* background-color: red; */
+    z-index: 999;
+    color: white;
+    border-radius: .8em;
+    padding: .1em .7em;
+    font-weight: 500;
+    display: none;
+}
+select{
+    margin: 1em;
+    padding: .5em 1em;
+    border-radius: 2em;
+    border: none;
+}
+@media (max-width:650px) {
+    #main{
+        height: auto;
+        flex-direction: column;
+        padding: 0;
+    }
+    #left{
+        height: 20vh;
+        width: 100%;
+    }
+    #left img{
+        height: 100%;
+        margin-bottom: -20%;
+    }
+    #right{
+        height: 90vh;
+    width: 100%;
+    }
+    #log{
+        /* overflow: visible; */
+        height: 80%;
+    }
+}

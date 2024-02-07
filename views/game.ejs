@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/game.css">
+    <link rel="icon" id="icon" href="/images/flappybird.png">
+</head>
+<body>
+    <div id="main">
+        
+        <div id="button" onclick="stop()" ><i class="ri-pause-mini-fill"></i></div>
+        <div id="player">
+            <div id="p1">
+                <div id="img" onclick="pro()">
+                    <% if(use.profilePic == 'null'){ %>
+                        <%  if(use.gender == 'Male'){ %>
+                          <img src="/images/uploads/<%= use.DP.male %>" alt="">
+                      <% } %>
+                        <% if(use.gender == 'Female'){ %>
+                          <img src="/images/uploads/<%= use.DP.female %>" alt="">
+                      <% } %>
+                      <% if(use.gender == 'Other'){ %>
+                          <%console.log(use.DP.other)%>
+                          <img src="/images/uploads/<%= use.DP.other %>" alt="">
+                      <% } %>
+                     <%  } %>
+                     <% if(use.profilePic != 'null'){%>
+                      <img src="/images/uploads/users/<%= use.profilePic %>" alt="">
+                  <%}%>                </div>
+                <h1><%= use.username %></h1>
+            </div>
+            <span><h1>Score : <span id="score"></span></h1><h2>High Score : <span id="highScore"></span> Saved : <%= use.highScore %></h2></span>
+        </div>
+     <canvas id="board"></canvas>
+     <div id="over">
+        <img src="/images/over.png" alt="">
+        <div id="scores">
+            <h1>Score : <span id="gscore"></span></h1><h2><span style="color: red;">High</span> Score : <span id="ghighScore"></span></h2>
+        </div>
+        <div id="btn">
+            <img src="/images/playbtn.png" alt="" onclick="restart()">
+            <div id="leader"><a href="/leaderBoard"><img src="/images/leaderBoard.jpg" alt="" ></a></div>
+        </div>
+     </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/javascripts/game.js"></script>
+</body>
+</html>

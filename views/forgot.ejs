@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:gilroy;
+        }
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+        #main{
+            height: 100vh;
+            width: 100vw;
+            background-image: url(/images/stars.gif);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+            width: 40%;
+        }
+        input{
+            padding: .6em 1.5em;
+            
+        }
+        #one{
+            border-radius: .5em;
+            outline: none;
+            margin: 2em 0 2em 0;
+        }
+        #two{
+            border-radius: 2em;
+            border: 2px solid white;
+            background-color: transparent;
+            color: white;
+            font-size: 1em;
+            margin: auto;
+        }
+        h2{
+            font-size: 2em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <form action="/forgot" method="post">
+            <h2>Email</h2>
+            <input type="email" name="email" id="one" placeholder="YourEmail@Example.com" required>
+            <input type="submit" name="" id="two">
+        </form>
+    </div>
+</body>
+</html>

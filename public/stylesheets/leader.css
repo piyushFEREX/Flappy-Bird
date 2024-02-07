@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:gilroy;
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #1B3358;
+}
+#main{
+    width: 100vw;
+    background-color:#1B3358;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nav{
+    margin-top: 1em;
+    height: 7%;width: 98%;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    padding: 2em;
+}
+#nav>i{
+    cursor: pointer;
+    /* margin-right: 2em; */
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    flex-direction: column;
+    color: crimson;
+}
+#nav>i:nth-child(2){
+    margin-left: 2em;
+    color: rgb(0, 98, 255);
+}
+
+#nav h1{
+    font-size: .5em;
+    margin-left: .3em;
+}
+#board{
+    width: 98%;height: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.elem{
+    cursor: pointer;
+    position: relative;
+    height: 5em;width: 100%;
+    background-color: #ffffff;
+    margin-top: 1em;
+    border-radius: 1em;
+    display: flex;
+    padding: 1em 0;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.elem h1{
+    font-size: 1em;
+}
+.elem h4{
+    font-size: 1em;
+}
+.ss1{
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+
+    padding-right: 1em;
+}
+.ss1>#img{
+    height: 120%;
+    border-radius: .2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#img>img{
+    height: 100%;
+
+}
+.s1{
+    border-left: 2px solid black;
+    padding-left: 1em;
+}
+.s2{
+    margin-right: 1.5em;
+    display: flex;
+    align-items: center;
+}
+#lead{
+    margin-top: .5em;
+    color: rgb(255, 255, 255);
+    word-spacing: .2em;
+    letter-spacing: .1em;
+    font-size: 1.3em;
+}
+.shine{
+    height: 400%;
+    width: 10%;
+    background-color: rgba(255, 255, 255, 0.594);
+    position: absolute;
+    /* top: -60%; */
+    transform: translate(-50%,-50%);
+    rotate: 40deg;
+    animation: shine infinite 2s ;
+}
+@keyframes shine {
+    0%{
+        left: -10%;
+    }
+    100%{
+        left: 110%;
+
+    }
+}

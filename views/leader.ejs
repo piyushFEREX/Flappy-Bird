@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy | LeaderBoard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/leader.css">
+</head>
+<body>
+   <div id="main">
+    <div id="nav"><i class="ri-user-fill" onclick="link('profile')"><h1>Profile</h1></i><i class="ri-gamepad-fill" onclick="link('game')"><h1>Game</h1></i></div>
+    <h1 id="lead">👑LEADER BOARD👑</h1>
+    <div id="board">
+        <%
+        // Sort foundUser array by highScore in descending order written by chat gpt
+        foundUser.sort((a, b) => b.highScore - a.highScore);
+        
+        foundUser.forEach((user, index) => {
+        %>
+            <div class="elem" onclick="link('userProfile/<%= user.username %>')" 
+                style ="<% if(index == 0){%>background-color:gold;<%}%><%if(index == 1){%>background-color:#c0c0c0;<%}%><%if(index == 2){%>background-color:#cd7f32;<%}%>">
+                <div class="ss1">
+                    <h1><%= index + 1 %>.</h1>
+                    <div id="img">
+                        <% if (user.profilePic == 'null') { %>
+                            <% if (user.gender == 'Male') { %>
+                                <img src="/images/uploads/<%= user.DP.male %>" alt="">
+                            <% } %>
+                            <% if (user.gender == 'Female') { %>
+                                <img src="/images/uploads/<%= user.DP.female %>" alt="">
+                            <% } %>
+                            <% if (user.gender == 'Other') { %>
+                                <% console.log(user.DP.other) %>
+                                <img src="/images/uploads/<%= user.DP.other %>" alt="">
+                            <% } %>
+                        <% } %>
+                        <% if (user.profilePic != 'null') { %>
+                            <img src="/images/uploads/users/<%= user.profilePic %>" alt="">
+                        <% } %>
+                    </div>
+                    <div class="s1" >
+                        <h1 style="display: flex; align-items: center;"><%= user.username %> <% if(index == 0 || index == 1 || index == 2){%>👑<%} %></h1>
+                        <h4><%= user.gender %></h4>
+                    </div>
+                </div>
+                <div class="s2"><h1><%= user.highScore %></h1></div>
+                <% if(index == 0 || index == 1 || index == 2){%><div class="shine"></div><%} %>
+            </div>
+        <%
+        });
+        %>
+        
+        <% console.log(foundUser)%>
+    </div>
+   </div>
+   <script>
+    function link(link){
+        window.location.href = `/${link}`
+    }
+   </script>
+</body>
+</html>

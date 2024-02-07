@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/flappybird.png">
+  <title>FlappyBird | Login</title> <link rel='stylesheet' href='/stylesheets/login.css' />
+</head>
+<body>
+  <div id="main">
+    <p style="margin-top: 2em; position: absolute; top: 0; z-index: 999; margin:2em 4em 0 4em; color: white; font-size: .7em;">This is a note form me(PiyushFEREX){githubUsername} <br> the game is made and tested on Brave Browser in 2023, made just for Fun Don't judge(i have a lot on my plate right now) , if it still runs,Smoothly?... ENJOY!</p>
+    <div id="left"><img src="/images/fly.gif" alt=""></div>
+    <div id="right">
+      <div id="log">
+        <form action="/login" id="login" method="post">
+          <h2>Login</h2>
+          <input type="text" name="username" placeholder="User Name" required>
+          <input type="password" name="password" placeholder="password" required>
+          <input type="submit" name="" value="Login" style="background-color: crimson; color: white; font-weight: 600; cursor: pointer;">
+          <a style="font-size: .8em; text-decoration: none;" href="/forgot">Forgot Password?</a>
+          <h1 class="change">Not a user Yet?</h1>
+        </form>
+        <form action="/signup" id="signup" method="post">
+          <h2>Sign Up</h2>
+          <label id="label" for="username"></label>
+          <input type="text" name="username" placeholder="User Name" id="sUsername" required>
+          <input type="email" name="email" id="" placeholder="YourEmail@Ex.com">
+          <input type="password" name="password" placeholder="Password" required>
+          
+          <input type="text" name="age" placeholder="Age" required >
+          
+          <label class="l" for="phone">Phone No (10 digits)</label>
+          <input type="tel" name="phone" placeholder="Phone No" required pattern="[0-9]{10}">
+          
+          <label for="gender">Choose Gender</label>
+          <select name="gender" id="gender">
+            <option value="Male">Male 👦</option>
+            <option value="Female">Female 👧</option>
+            <option value="Other">🌈🏳️‍🌈</option>
+          </select>
+          
+          <input type="submit" name="" value="Sign Up" style="background-color: crimson; color: white; font-weight: 600; cursor: pointer;">
+          <h1 class="change">Already a user?</h1>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/javascripts/login.js"></script>
+</body>
+</html>
